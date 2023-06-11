@@ -2,6 +2,7 @@ package com.trashscan.trashscan;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,12 +17,14 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     DatabaseReference mDatabase;
+    private boolean isAdmin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
         if (mAuth.getCurrentUser() != null) {
-            load();
+            load(mAuth.getCurrentUser().getEmail());
         }
         TextView t = findViewById(R.id.textView1);
         t.setOnClickListener(new View.OnClickListener() {
@@ -56,8 +59,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    FirebaseUser user = mAuth.getCurrentUser();
-                                    load();
+                                    load(u);
                                 } else {
                                     Toast.makeText(MainActivity.this, "Authentication failed.",
                                             Toast.LENGTH_SHORT).show();
@@ -68,7 +70,31 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void load() {
-        // TODO: When logged in, move to some other screen
+    public void load(String username) {
+       /*
+        * TODO: When logged in, move to some other screen.
+        *  Also, check for admin and change accordingly.
+        */
+        FirebaseUser curUser = FirebaseAuth.getInstance().getCurrentUser();
+        mDatabase = FirebaseDatabase.getInstance().getReference(curUser.getUid());
+
+        isAdmin = false;
+        mDatabase.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()) {
+                    Log.d("Debug:taskSuccessful",
+                          "Value: "+task.getResult().exists());
+                    isAdmin = task.getResult().exists();
+                    if (isAdmin) {
+                        Toast.makeText(MainActivity.this, "IS ADMIN", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(MainActivity.this, "NOT ADMIN", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Log.d("Debug:taskFailed", "Error getting data");
+                }
+            }
+        });
     }
 }

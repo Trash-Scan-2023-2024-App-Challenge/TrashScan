@@ -55,7 +55,7 @@ public class Register extends AppCompatActivity {
                 String p = password.getText().toString();
 
                 if (TextUtils.isEmpty(u) || TextUtils.isEmpty(p)) {
-                    Toast.makeText(Register.this, "Please fill all fields", Toast.LENGTH_SHORT);
+                    Toast.makeText(Register.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
