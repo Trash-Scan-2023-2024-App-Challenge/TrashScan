@@ -24,7 +24,6 @@ import com.google.firebase.database.FirebaseDatabase;
 public class MainActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     DatabaseReference mDatabase;
-    private boolean isAdmin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,20 +76,16 @@ public class MainActivity extends AppCompatActivity {
         */
         FirebaseUser curUser = FirebaseAuth.getInstance().getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference(curUser.getUid());
-
-        isAdmin = false;
         mDatabase.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (task.isSuccessful()) {
                     Log.d("Debug:taskSuccessful",
                           "Value: "+task.getResult().exists());
-                    isAdmin = task.getResult().exists();
-                    if (isAdmin) {
+                    if (task.getResult().exists())
                         Toast.makeText(MainActivity.this, "IS ADMIN", Toast.LENGTH_SHORT).show();
-                    } else {
+                    else
                         Toast.makeText(MainActivity.this, "NOT ADMIN", Toast.LENGTH_SHORT).show();
-                    }
                 } else {
                     Log.d("Debug:taskFailed", "Error getting data");
                 }
