@@ -39,8 +39,7 @@ public class MainActivity extends AppCompatActivity {
         t.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), Register.class);
-                startActivity(i);
+                startActivity(new Intent(getApplicationContext(), Register.class));
                 finish();
             }
         });
@@ -82,9 +81,11 @@ public class MainActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Log.d("Debug:taskSuccessful",
                           "Value: "+task.getResult().exists());
-                    if (task.getResult().exists())
+                    if (task.getResult().exists()) {
                         Toast.makeText(MainActivity.this, "IS ADMIN", Toast.LENGTH_SHORT).show();
-                    else
+                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                        finish();
+                    } else
                         Toast.makeText(MainActivity.this, "NOT ADMIN", Toast.LENGTH_SHORT).show();
                 } else {
                     Log.d("Debug:taskFailed", "Error getting data");
