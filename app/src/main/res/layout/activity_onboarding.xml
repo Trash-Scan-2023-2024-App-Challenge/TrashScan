@@ -16,7 +16,8 @@
         android:textSize="15sp"
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Next"/>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/onboardingViewPager"

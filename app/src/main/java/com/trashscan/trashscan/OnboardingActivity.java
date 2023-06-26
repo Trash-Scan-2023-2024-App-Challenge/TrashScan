@@ -2,6 +2,7 @@ package com.trashscan.trashscan;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -119,6 +120,14 @@ public class OnboardingActivity extends AppCompatActivity {
         }
         if(index == onboardingAdapter.getItemCount()-1){
             buttonOnboardingAction.setText("Start");
+            Log.d("DEBUG", "On Last Page");
+            new Handler().postDelayed(new Runnable() {
+                public void run () {
+                    startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                    finish();
+                }
+            }, 5000L);
+
         }else{
             buttonOnboardingAction.setText("Next");
         }
