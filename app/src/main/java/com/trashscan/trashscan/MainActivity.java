@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                           "Value: "+task.getResult().exists());
                     if (task.getResult().exists()) {
                         Toast.makeText(MainActivity.this, "IS ADMIN", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                        startActivity(new Intent(getApplicationContext(), OnboardingActivity.class));
                         finish();
                     } else
                         Toast.makeText(MainActivity.this, "NOT ADMIN", Toast.LENGTH_SHORT).show();

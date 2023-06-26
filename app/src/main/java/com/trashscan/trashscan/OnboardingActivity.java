@@ -2,6 +2,7 @@ package com.trashscan.trashscan;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -45,6 +46,8 @@ public class OnboardingActivity extends AppCompatActivity {
                 setCurrentOnboardingIndicator(position);
             }
         });
+
+        Log.d("DEBUG", "Everything working so far");
 
         buttonOnboardingAction.setOnClickListener(new View.OnClickListener() {
             @Override
