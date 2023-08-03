@@ -85,8 +85,11 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "IS ADMIN", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(), OnboardingActivity.class));
                         finish();
-                    } else
+                    } else {
                         Toast.makeText(MainActivity.this, "NOT ADMIN", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(getApplicationContext(), OnboardingActivity.class));
+                        finish();
+                    }
                 } else {
                     Log.d("Debug:taskFailed", "Error getting data");
                 }

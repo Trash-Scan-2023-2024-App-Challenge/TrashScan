@@ -8,12 +8,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -125,11 +134,34 @@ public class OnboardingActivity extends AppCompatActivity {
                 public void run () {
                     startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                     finish();
+                     startNext(); // Goes to admin or home page
                 }
             }, 5000L);
 
         }else{
             buttonOnboardingAction.setText("Next");
         }
+    }
+
+    public void startNext() {
+        FirebaseUser curUser = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference(curUser.getUid());
+        mDatabase.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()) {
+                    Log.d("Debug:taskSuccessful",
+                            "Value: "+task.getResult().exists());
+                    if (task.getResult().exists()) {
+                        Toast.makeText(OnboardingActivity.this, "IS ADMIN", Toast.LENGTH_SHORT).show();
+                        //startActivity(new Intent(getApplicationContext(), OnboardingActivity.class));
+                        //finish();
+                    } else
+                        Toast.makeText(OnboardingActivity.this, "NOT ADMIN", Toast.LENGTH_SHORT).show();
+                } else {
+                    Log.d("Debug:taskFailed", "Error getting data");
+                }
+            }
+        });
     }
 }
