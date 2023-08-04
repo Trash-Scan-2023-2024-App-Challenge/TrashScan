@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,6 +19,8 @@ public class ProfileActivity extends AppCompatActivity {
 
         Button button = (Button) findViewById(R.id.password_change);
         Button signOut = (Button) findViewById(R.id.logout);
+        TextView email = findViewById(R.id.username);
+        email.setText("\nUsername: "+FirebaseAuth.getInstance().getCurrentUser().getEmail()+"\n");
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -34,7 +37,7 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
     public void openEditActivity(){
-//        Intent intent = new Intent(this, EditLayoutActivity.class);
-//        startActivity(intent);
+        Intent intent = new Intent(this, EditLayoutActivity.class);
+        startActivity(intent);
     }
 }

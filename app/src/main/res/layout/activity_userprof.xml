@@ -21,12 +21,6 @@
         android:layout_height="wrap_content"
         android:text="\nUsername\n\n"
         android:textStyle="bold" />
-    <TextView
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Password"
-        android:textStyle="bold" />
 
     <Button
         android:id="@+id/password_change"
