@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".EditLayoutActivity">
+    <TextView
+        android:id="@+id/email_view"
+        android:layout_width="match_parent"
+        android:text="Email"
+        android:textStyle="bold"
+        android:layout_height="16dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Enter email"
+        android:id="@+id/email_edit"
+        />
+
+    <TextView
+        android:id="@+id/username_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Username:"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="69dp" />
+    <EditText
+        android:id="@+id/username_edit"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Enter Username"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="69dp" />
+    <TextView
+        android:id="@+id/oldpassword_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Old Password:"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="69dp" />
+    <EditText
+        android:id="@+id/oldpassword_edit"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:inputType=""
+        android:hint="Enter Old Password"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="69dp" />
+    <TextView
+        android:id="@+id/newpassword_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New Password:"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="69dp" />
+    <EditText
+        android:id="@+id/newpassword_edit"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:inputType=""
+        android:hint="Enter New Password"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="69dp" />
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Changes"
+        android:layout_marginTop="16dp"/>
+
+</LinearLayout>

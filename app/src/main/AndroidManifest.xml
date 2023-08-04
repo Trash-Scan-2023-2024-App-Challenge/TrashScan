@@ -15,7 +15,10 @@
         android:theme="@style/Theme.TrashScan"
         tools:targetApi="31">
         <activity
-            android:name=".HomeActivity"
+            android:name=".EditLayoutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileActivity"
             android:exported="false" />
         <activity
             android:name=".OnboardingActivity"
