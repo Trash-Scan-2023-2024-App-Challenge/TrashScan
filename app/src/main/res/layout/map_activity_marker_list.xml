@@ -1,0 +1,14 @@
+<!-- activity_marker_list.xml -->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/markerListLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/white">
+
+    <!-- This LinearLayout will be populated with TextViews for each marker. -->
+
+</LinearLayout>

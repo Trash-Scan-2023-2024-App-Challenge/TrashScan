@@ -37,6 +37,7 @@
         android:layout_height="wrap_content"
         android:hint="Password"
         android:id="@+id/password"
+        android:inputType="textPassword"
         android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
