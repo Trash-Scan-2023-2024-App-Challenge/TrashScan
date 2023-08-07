@@ -15,6 +15,7 @@ public class ShortsFragment extends Fragment {
     private ImageView parkImageView;
     private TextView parkNameTextView;
     private TextView parkDescriptionTextView;
+
     // Add other views to display city, zip code, state, country, address here
 
     @Override

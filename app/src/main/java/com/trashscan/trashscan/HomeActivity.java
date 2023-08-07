@@ -23,13 +23,13 @@ public class HomeActivity extends AppCompatActivity {
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             if (item.getItemId() == R.id.home) {
-                replaceFragment(new HomeFragment());
+                replaceFragment(new HomeFragment()); // Home screen
             } else if (item.getItemId() == R.id.shorts) {
-                replaceFragment(new ShortsFragment());
+                replaceFragment(new ShortsFragment()); // Explore screen
             } else if (item.getItemId() == R.id.subscriptions) {
                 replaceFragment(new SubscriptionFragment());
             } else if (item.getItemId() == R.id.library) {
-                replaceFragment(new LibraryFragment());
+                replaceFragment(new LibraryFragment()); // User profile screen
             } else if (item.getItemId() == R.id.fab) {
                 replaceFragment(new MapsButtonFragment());
             }
