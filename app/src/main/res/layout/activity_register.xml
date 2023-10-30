@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp"
-    tools:context=".Register">
+    tools:context=".Register"
+    android:background="@color/lavender"
+    >
 
     <TextView
         android:layout_width="wrap_content"
@@ -15,46 +16,53 @@
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.1"
+        android:textColor="@color/white"
+        android:id="@+id/registerTV"
+        />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Username"
+        android:layout_margin="20dp"
+        android:background="@drawable/rounded_corner_view"
+        android:padding="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerTV"
+        />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Username"
-        android:id="@+id/username"
-        android:padding="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.106" />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/rounded_corner_view"
         android:hint="Password"
         android:id="@+id/password"
         android:inputType="textPassword"
         android:padding="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/username"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.206" />
+        app:layout_constraintVertical_bias="0.4" />
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register!"
+        android:layout_margin="20dp"
+        android:text="  Register!  "
         android:textSize="22sp"
-        android:padding="20dp"
+        android:padding="2dp"
         android:id="@+id/registerButton"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.35" />
+        app:layout_constraintVertical_bias="0.35"
+        app:layout_constraintHorizontal_bias="0.02"
+        />
 
     <TextView
         android:id="@+id/textView1"
@@ -63,6 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
         android:text="Click to Login"
+        android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintTop_toBottomOf="@+id/registerButton"
         app:layout_constraintEnd_toEndOf="parent"
@@ -75,6 +84,7 @@
         android:layout_marginStart="21dp"
         android:layout_marginTop="20dp"
         android:text="Admin"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerButton" />
 

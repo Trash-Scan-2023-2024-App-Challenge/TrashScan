@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/lavender"
+    >
 
     <TextView
         android:layout_width="wrap_content"
@@ -13,16 +14,19 @@
         android:id="@+id/adminSwitch"
         android:text="Login:"
         android:textSize="40dp"
+        android:textColor="@color/white"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.1" />
 
     <EditText
         android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_height="wrap_content"
         android:hint="Username"
         android:id="@+id/username"
@@ -30,10 +34,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.106" />
+        app:layout_constraintTop_toBottomOf="@+id/adminSwitch"
+        app:layout_constraintVertical_bias="0.106"
+        android:background="@drawable/rounded_corner_view"
+        />
     <EditText
         android:layout_width="match_parent"
+        android:background="@drawable/rounded_corner_view"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_height="wrap_content"
         android:hint="Password"
         android:id="@+id/password"
@@ -42,29 +51,33 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.206" />
+        app:layout_constraintTop_toBottomOf="@+id/username"
+        app:layout_constraintVertical_bias="0.05" />
+
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Log In!"
-        android:textSize="22dp"
-        android:padding="20dp"
         android:id="@+id/logInButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="  Log In!  "
+        android:textSize="26dp"
+        app:flow_horizontalBias="0.5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.35" />
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintVertical_bias="0.1" />
 
     <TextView
         android:id="@+id/textView1"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:gravity="center"
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
-        android:text="Click to Register"
-        android:textSize="24sp"
+        android:text="Don't have an account?\nSign up here!"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@+id/logInButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
